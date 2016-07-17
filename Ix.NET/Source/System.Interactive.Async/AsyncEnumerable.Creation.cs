@@ -152,14 +152,6 @@ namespace System.Linq
             );
         }
 
-        public static IAsyncEnumerable<TValue> Empty<TValue>()
-        {
-            return Create(() => Create<TValue>(
-                ct => TaskExt.False,
-                () => { throw new InvalidOperationException(); },
-                () => { })
-            );
-        }
 
         public static IAsyncEnumerable<int> Range(int start, int count)
         {
